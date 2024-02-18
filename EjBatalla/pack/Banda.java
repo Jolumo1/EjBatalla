@@ -31,12 +31,9 @@ public class Banda {
 	public void moverSoldados() {
 		Random aleatorio = new Random();
 		int NuevaPosicionLanzaCohetes;
-
-		 
+			
 		
-		
-		System.out.println();
-		System.out.println("Los supervivientes de \033[31m" + nombre  + "\033[30m se están recolocando...");
+		System.out.println("Los supervivientes de \033[31m" + nombre  + "\033[30m se están rehubicando...");
 		
 
 		for (int i = 0; i < soldados.length; i++) {
@@ -93,7 +90,7 @@ public class Banda {
 	public void mostrarBanda() {
 
 		System.out.println();
-		System.out.println("========= \033[34m BANDA: \033[31m" + nombre.toUpperCase() + "\033[30m=========");
+		System.out.println("================== \033[34m BANDA: \033[31m" + nombre.toUpperCase() + "\033[30m==================");
 
 		for (int i = 0; i < soldados.length; i++) {
 
@@ -102,7 +99,7 @@ public class Banda {
 				System.out.println(soldados[i]);
 			}
 		}
-
+		System.out.println();
 	}
 
 	public String getNombre() {

@@ -2,7 +2,7 @@ package pack;
 
 import java.util.Random;
 
-public class Batalla {
+public class BatallaMain {
 
 	public static void main(String[] args) {
 		Random aleatorio = new Random();
@@ -21,90 +21,58 @@ public class Batalla {
 		System.out.println("            ********************************************\n");
 		System.out.println("\033[30m");
 
-		System.out.println("******* Hoy presenciamos un enfrentamiento legendario entre dos famosas bandas de malhechores ********");
-		System.out.println("**** Ambos grupos lucharán a muerte por un suculento premio que cambiará el curso de la historia  ****");
-		
-		
+		System.out.println(
+				"******* Hoy presenciamos un enfrentamiento legendario entre dos famosas bandas de malhechores ********");
+		System.out.println(
+				"**** Ambos grupos lucharán a muerte por un suculento premio que cambiará el curso de la historia  ****");
+
 		// Listamos las bandas
 		System.out.println();
 		System.out.println("         ESTAS SON LAS BANDAS ENFRENTADAS:   ");
 		banda1.mostrarBanda();
-		System.out.println();
 		banda2.mostrarBanda();
 
 		// Tiramos una moneda para ver quien empieza
 
 		primero = aleatorio.nextInt(2);
 
-		// segun el resultado se aplica un case u otro
+		// segun el resultado empieza una banda u otra.
 
-		switch (primero) {
+		do {
 
-		case 0:
-
-			System.out.println();
-			System.out.println("Empieza " + banda1.getNombre());
-
-			do {
-				System.out.println();
-				System.out.println("\033[32m    =========================== RONDA " + ronda
-						+ " ===========================\033[30m");
-
+			if (primero == 0) {
 				alAtaque(banda1, banda2);
 				alAtaque(banda2, banda1);
-
-				System.out.println("\033[31m");
-				System.out.println("( -_•)╦̵̵̿╤─ -- ---- --- ☠ Piu piu, Pañum Pañum ☠ -- ---- --- ╾━╤デ╦︻(•ᴗ•)");
-				System.out.println("\033[30m");
-				System.out.println(" Tras la intensa batalla, estos son los supervivientes: ");
-				System.out.println();
-
-				banda1.mostrarBanda();
-				System.out.println();
-				banda2.mostrarBanda();
-
-				banda1.moverSoldados();
-				banda2.moverSoldados();
-
-				finJuego = bandaMuerta(banda1, banda2);
-				ronda++;
-
-			} while (finJuego == false);
-
-			break;
-
-		case 1:
-
-			System.out.println();
-			System.out.println("Empieza " + banda2.getNombre());
-
-			do {
-				System.out.println("\033[32m    =========================== RONDA " + ronda
-						+ " ===========================\033[30m");
+			} else {
 				alAtaque(banda2, banda1);
 				alAtaque(banda1, banda2);
+			}
 
-				System.out.println("\033[31m");
-				System.out.println("( -_•)╦̵̵̿╤─ -- ---- --- ☠ Piu piu, Pañum Pañum ☠ -- ---- --- ╾━╤デ╦︻(•ᴗ•)");
-				System.out.println("\033[30m");
-				System.out.println(" Tras la intensa batalla, estos son los supervivientes: ");
-				System.out.println();
+			System.out.println("\033[31m");
+			System.out.println("( -_•)╦̵̵̿╤─ -- ---- --- ☠ Piu piu, Pañum Pañum ☠ -- ---- --- ╾━╤デ╦︻(•ᴗ•)");
+			System.out.println("\033[30m");
+			System.out.println(" Tras la intensa batalla, estos son los supervivientes: ");
+			System.out.println();
 
-				banda1.mostrarBanda();
-				System.out.println();
-				banda2.mostrarBanda();
+			// Mostramos las bandas tras el primer combate
 
-				banda1.moverSoldados();
-				banda2.moverSoldados();
+			banda1.mostrarBanda();
+			banda2.mostrarBanda();
 
-				finJuego = bandaMuerta(banda1, banda2);
-				ronda++;
+			// Movemos a los soldados de cada banda con el metodo correspondiente, teniendo
+			// en cuenta que cada tipo de soldado se mueve de una forma.
 
-			} while (finJuego == false);
+			banda1.moverSoldados();
+			banda2.moverSoldados();
 
-			break;
+			// Llamamos al metodo bandaMuerta, que acaba el juego si alguna banda no tiene
+			// miembros vivos. Si no se cumple, seguimos el juego y aumentamos el contador
+			// de rondas.
 
-		}
+			finJuego = bandaMuerta(banda1, banda2);
+			ronda++;
+
+		} while (finJuego == false);
 
 	} // -----------------------------------FIN_MAIN------------------------------------------------------
 
@@ -120,7 +88,7 @@ public class Batalla {
 			dibujarVictoria();
 			System.out.println();
 			return true;
-			
+
 		} else if (banda2.bandaFrita()) {
 			System.out.println();
 			System.out.println("💀💀💀 La banda " + banda2.getNombre() + " ha sido aniquilada ⚰️⚰️⚰️");
@@ -131,7 +99,7 @@ public class Batalla {
 			dibujarVictoria();
 			System.out.println();
 			return true;
-			
+
 		} else {
 			System.out.println();
 			System.out.println("Aun hay soldados en pie, que siga el combate!");
