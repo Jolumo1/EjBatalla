@@ -15,10 +15,10 @@ public class Batalla {
 		Banda banda2 = new Banda(crearSoldados());
 
 		System.out.println("\033[31m");
-		System.out.println("      ********************************************");
-		System.out.println("      *         Bienvenido a la Guerra de        *");
-		System.out.println("      *            Las Bandas                    *");
-		System.out.println("      ********************************************\n");
+		System.out.println("            ********************************************");
+		System.out.println("            *         Bienvenido a la Guerra de        *");
+		System.out.println("            *            Las Bandas                    *");
+		System.out.println("            ********************************************\n");
 		System.out.println("\033[30m");
 
 		System.out.println("******* Hoy presenciamos un enfrentamiento legendario entre dos famosas bandas de malhechores ********");
@@ -27,7 +27,7 @@ public class Batalla {
 		
 		// Listamos las bandas
 		System.out.println();
-		System.out.println("   ESTAS SON LAS BANDAS ENFRENTADAS:   ");
+		System.out.println("         ESTAS SON LAS BANDAS ENFRENTADAS:   ");
 		banda1.mostrarBanda();
 		System.out.println();
 		banda2.mostrarBanda();
@@ -115,7 +115,7 @@ public class Batalla {
 			System.out.println("💀💀💀 La banda " + banda1.getNombre() + " ha sido aniquilada ⚰️⚰️⚰️");
 			dibujarTumba();
 			System.out.println("**********************************************************************");
-			System.out.println("Gana la banda " + banda2.getNombre());
+			System.out.println("      Gana la banda " + banda2.getNombre());
 			System.out.println();
 			dibujarVictoria();
 			System.out.println();
@@ -126,7 +126,7 @@ public class Batalla {
 			System.out.println("💀💀💀 La banda " + banda2.getNombre() + " ha sido aniquilada ⚰️⚰️⚰️");
 			dibujarTumba();
 			System.out.println("**********************************************************************");
-			System.out.println("Gana la banda " + banda1.getNombre());
+			System.out.println("      Gana la banda " + banda1.getNombre());
 			System.out.println();
 			dibujarVictoria();
 			System.out.println();
