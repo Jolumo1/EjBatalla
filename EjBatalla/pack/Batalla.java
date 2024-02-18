@@ -14,9 +14,20 @@ public class Batalla {
 		Banda banda1 = new Banda(crearSoldados());
 		Banda banda2 = new Banda(crearSoldados());
 
-		// Listamos las bandas
+		System.out.println("\033[31m");
+		System.out.println("      ********************************************");
+		System.out.println("      *         Bienvenido a la Guerra de        *");
+		System.out.println("      *            Las Bandas                    *");
+		System.out.println("      ********************************************\n");
+		System.out.println("\033[30m");
 
-		System.out.println("ESTAS SON LAS BANDAS ENFRENTADAS:");
+		System.out.println("******* Hoy presenciamos un enfrentamiento legendario entre dos famosas bandas de malhechores ********");
+		System.out.println("**** Ambos grupos lucharán a muerte por un suculento premio que cambiará el curso de la historia  ****");
+		
+		
+		// Listamos las bandas
+		System.out.println();
+		System.out.println("   ESTAS SON LAS BANDAS ENFRENTADAS:   ");
 		banda1.mostrarBanda();
 		System.out.println();
 		banda2.mostrarBanda();
@@ -25,88 +36,75 @@ public class Batalla {
 
 		primero = aleatorio.nextInt(2);
 
-		//segun el resultado se aplica un case u otro
+		// segun el resultado se aplica un case u otro
 
 		switch (primero) {
 
-		    case 0:
+		case 0:
 
-		        System.out.println();
-		        System.out.println("Empieza " + banda1.nombre);
+			System.out.println();
+			System.out.println("Empieza " + banda1.getNombre());
 
-		        do {
-		            System.out.println("RONDA " + ronda);
+			do {
+				System.out.println();
+				System.out.println("\033[32m    =========================== RONDA " + ronda
+						+ " ===========================\033[30m");
 
-		            alAtaque(banda1, banda2);
-		            alAtaque(banda2, banda1);
+				alAtaque(banda1, banda2);
+				alAtaque(banda2, banda1);
 
-		            banda1.mostrarBanda();
-		            System.out.println();
-		            banda2.mostrarBanda();
+				System.out.println("\033[31m");
+				System.out.println("( -_•)╦̵̵̿╤─ -- ---- --- ☠ Piu piu, Pañum Pañum ☠ -- ---- --- ╾━╤デ╦︻(•ᴗ•)");
+				System.out.println("\033[30m");
+				System.out.println(" Tras la intensa batalla, estos son los supervivientes: ");
+				System.out.println();
 
-		            finJuego = bandaMuerta(banda1, banda2);
+				banda1.mostrarBanda();
+				System.out.println();
+				banda2.mostrarBanda();
 
-		            ronda++;
-		        } while (finJuego==false);
+				banda1.moverSoldados();
+				banda2.moverSoldados();
 
-		        break;
+				finJuego = bandaMuerta(banda1, banda2);
+				ronda++;
 
-		    case 1:
-		        
-		        
-		        System.out.println();
-		        System.out.println("Empieza " + banda2.nombre);
+			} while (finJuego == false);
 
-		        do {
-		            System.out.println("RONDA " + ronda);
-		            alAtaque(banda2, banda1);
-		            alAtaque(banda1, banda2);
+			break;
 
-		            System.out.println();
-		            System.out.println("Estos son los supervivientes ");
-		            System.out.println();
-		            
-		            
-		            banda1.mostrarBanda();
-		            System.out.println();
-		            banda2.mostrarBanda();
+		case 1:
 
-		            
-		            finJuego = bandaMuerta(banda1, banda2);
-		            
-		            ronda++;
-		        } while (finJuego==false);
+			System.out.println();
+			System.out.println("Empieza " + banda2.getNombre());
 
-		        break;
+			do {
+				System.out.println("\033[32m    =========================== RONDA " + ronda
+						+ " ===========================\033[30m");
+				alAtaque(banda2, banda1);
+				alAtaque(banda1, banda2);
 
-		    }
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				System.out.println("\033[31m");
+				System.out.println("( -_•)╦̵̵̿╤─ -- ---- --- ☠ Piu piu, Pañum Pañum ☠ -- ---- --- ╾━╤デ╦︻(•ᴗ•)");
+				System.out.println("\033[30m");
+				System.out.println(" Tras la intensa batalla, estos son los supervivientes: ");
+				System.out.println();
+
+				banda1.mostrarBanda();
+				System.out.println();
+				banda2.mostrarBanda();
+
+				banda1.moverSoldados();
+				banda2.moverSoldados();
+
+				finJuego = bandaMuerta(banda1, banda2);
+				ronda++;
+
+			} while (finJuego == false);
+
+			break;
+
+		}
 
 	} // -----------------------------------FIN_MAIN------------------------------------------------------
 
@@ -114,23 +112,31 @@ public class Batalla {
 
 		if (banda1.bandaFrita()) {
 			System.out.println();
-			System.out.println("La banda " + banda1.nombre + " ha sido aniquilada");
+			System.out.println("💀💀💀 La banda " + banda1.getNombre() + " ha sido aniquilada ⚰️⚰️⚰️");
+			dibujarTumba();
+			System.out.println("**********************************************************************");
+			System.out.println("Gana la banda " + banda2.getNombre());
 			System.out.println();
-			System.out.println("Gana la banda " + banda2.nombre);
+			dibujarVictoria();
 			System.out.println();
 			return true;
+			
 		} else if (banda2.bandaFrita()) {
 			System.out.println();
-			System.out.println("La banda " + banda2.nombre + " ha sido aniquilada");
+			System.out.println("💀💀💀 La banda " + banda2.getNombre() + " ha sido aniquilada ⚰️⚰️⚰️");
+			dibujarTumba();
+			System.out.println("**********************************************************************");
+			System.out.println("Gana la banda " + banda1.getNombre());
 			System.out.println();
-			System.out.println("Gana la banda " + banda1.nombre);
+			dibujarVictoria();
 			System.out.println();
 			return true;
+			
 		} else {
 			System.out.println();
 			System.out.println("Aun hay soldados en pie, que siga el combate!");
 			System.out.println();
-			
+
 			return false;
 		}
 
@@ -234,6 +240,45 @@ public class Batalla {
 		// crea un objeto LanzaCohetes
 		LanzaCohetes SoldadoLanzaCohetes = new LanzaCohetes();
 		return SoldadoLanzaCohetes;
+	}
+
+	public static void dibujarTumba() {
+
+		System.out.println("\u001b[35m               _______________");
+		System.out.println("\u001b[35m              /                \\");
+		System.out.println("\u001b[35m             |  _     ___   _   ||");
+		System.out.println("\u001b[35m             | | \\     |   | \\  ||");
+		System.out.println("\u001b[35m             | |  |    |   |  | ||");
+		System.out.println("\u001b[35m             | |_/     |   |_/  ||");
+		System.out.println("\u001b[35m             | | \\     |   |    ||");
+		System.out.println("\u001b[35m             | |  \\    |   |    ||");
+		System.out.println("\u001b[35m             | |   \\. _|_. | .  ||");
+		System.out.println("\u001b[35m             |                  ||");
+		System.out.println("\u001b[35m             |                  ||");
+		System.out.println("\u001b[35m             |                  ||");
+		System.out.println("\u001b[35m     *       | *   **    * **   |**      **");
+		System.out.println("\u001b[35m      \\))/.,(//.,(//,,..,,\\||(,,.,\\\\,.((//");
+		System.out.println("\u001B[0m");
+	}
+
+	public static void dibujarVictoria() {
+
+		System.out.println("\u001b[32m⠀⠀⠀⠀          ⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
+		System.out.println("          ⠀⠀⠀⠀⠀⠀⢯⠙⠩⠀⡇⠊⠽⢖⠆⠀⠀⠀⠀⠀");
+		System.out.println("⠀⠀⠀     ⠀⠀     ⠀⠀⠱⣠⠀⢁⣄⠔⠁⠀⠀⠀⠀⠀⠀");
+		System.out.println("⠀⠀     ⠀⠀⠀⠀⠀⠀     ⣷⣶⣾⣾⠀⠀⠀⠀⠀⠀⠀⠀");
+		System.out.println("⠀⠀     ⠀     ⠀⠀⠀⢀⡔⠙⠈⢱⡟⣧⠀⠀⠀⠀⠀⠀⠀");
+		System.out.println("⠀     ⠀     ⠀⠀⠀⡠⠊⠀⠀⣀⡀⠀⠘⠕⢄⠀⠀⠀⠀⠀");
+		System.out.println("⠀          ⠀⠀⢀⠞⠀⠀⢀⣠⣿⣧⣀⠀⠀⢄⠱⡀⠀⠀⠀");
+		System.out.println("          ⠀⠀⡰⠃⠀⠀⢠⣿⠿⣿⡟⢿⣷⡄⠀⠑⢜⢆⠀⠀");
+		System.out.println("          ⠀⢰⠁⠀⠀⠀⠸⣿⣦⣿⡇⠀⠛⠋⠀⠨⡐⢍⢆⠀");
+		System.out.println("          ⠀⡇⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣦⡀⠀⢀⠨⡒⠙⡄");
+		System.out.println("          ⢠⠁⡀⠀⠀⠀⣤⡀⠀⣿⡇⢈⣿⡷⠀⠠⢕⠢⠁⡇");
+		System.out.println("         ⠸⠀⡕⠀⠀⠀⢻⣿⣶⣿⣷⣾⡿⠁⠀⠨⣐⠨⢀⠃");
+		System.out.println("          ⠀⠣⣩⠘⠀⠀⠀⠈⠙⣿⡏⠁⠀⢀⠠⢁⡂⢉⠎⠀");
+		System.out.println("⠀          ⠀⠈⠓⠬⢀⣀⠀⠀⠈⠀⠀⠀⢐⣬⠴⠒⠁⠀⠀");
+		System.out.println("⠀          ⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀\u001B[0m");
+
 	}
 
 }

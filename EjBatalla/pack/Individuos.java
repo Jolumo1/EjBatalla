@@ -18,12 +18,16 @@ public abstract class Individuos {
 	public Individuos() {
 
 		Random aleatorio = new Random();
-		String[] listaNombres = { "Bartolomé", "Crispín", "Demetrio", "Eustaquio", "Florencio", "Gervasio", "Higinio",
-				"Isidoro", "Jenaro", "Leovigildo", "Marcial", "Nicanor", "Obdulio", "Pancracio", "Quiteria", "Remigio",
-				"Sabas", "Teodosio", "Urbano", "Valeriano", "Wenceslao", "Xenón", "Yago", "Zacarías", "Aureliano",
-				"Brígida", "Clemente", "Dorotea", "Ezequiel", "Fabián", "Genoveva", "Hermenegildo", "Irene", "Justino",
-				"Liberata", "Marciana", "Néstor", "Octavio", "Porfirio", "Quirico", "Rufina", "Salomé", "Tiburcio",
-				"Ulpiano", "Vicenta", "Walfredo", "Ximeno", "Ysabel", "Zósimo" };
+		String[] listaNombres = { "Bartolomé Pérez", "Crispín López", "Demetrio Ruiz", "Eustaquio Fernández",
+				"Florencio Díaz", "Gervasio Rodríguez", "Higinio Sánchez", "Isidoro Martínez", "Jenaro Gómez",
+				"Leovigildo Ramírez", "Marcial González", "Nicanor Martín", "Obdulio Pérez", "Pancracio Gutiérrez",
+				"Quiteria Martínez", "Remigio Sánchez", "Sabas Fernández", "Teodosio Ramírez", "Urbano González",
+				"Valeriano Pérez", "Wenceslao Gómez", "Xenón López", "Yago Sánchez", "Zacarías Rodríguez",
+				"Aureliano Martínez", "Brígida Díaz", "Clemente Pérez", "Dorotea Gómez", "Ezequiel Ramírez",
+				"Fabián González", "Genoveva Martín", "Hermenegildo Pérez", "Irene Gutiérrez", "Justino Rodríguez",
+				"Liberata López", "Marciana Martínez", "Néstor Ramírez", "Octavio González", "Porfirio Pérez",
+				"Quirico Gómez", "Rufina Sánchez", "Salomé Martín", "Tiburcio Díaz", "Ulpiano Pérez", "Vicenta Gómez",
+				"Walfredo Ramírez", "Ximeno López", "Ysabel Martínez", "Zósimo Fernández" };
 
 		this.nombre = listaNombres[aleatorio.nextInt(49)];
 		this.vida = 9;
@@ -47,7 +51,8 @@ public abstract class Individuos {
 		if (vida <= 0) {
 			this.vida = 0;
 
-		}else this.vida=vida;
+		} else
+			this.vida = vida;
 
 	}
 

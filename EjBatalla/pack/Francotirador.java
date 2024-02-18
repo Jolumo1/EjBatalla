@@ -19,7 +19,7 @@ public class Francotirador extends Individuos {
 
 	@Override
 	public String toString() {
-		System.out.printf("\033[34m Francotirador:   %-15s Vida=%-10d Posición=%-10s Daño=%-13d" + "\033[30m", 
+		System.out.printf("\033[34m 🔫 Francotirador:   %-20s Vida=%-10d Posición=%-10s Daño=%-13d" + "\033[30m", 
 				nombre, vida, posicion, danio);
 		return "";
 	}

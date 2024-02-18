@@ -17,7 +17,7 @@ public class LanzaCohetes extends Individuos {
 	}
 
 	public String toString() {
-		System.out.printf("\033[35m LanzaCohetes:    %-15s Vida=%-10d Posición=%-10s Alcance=%-10d" + "\033[30m",
+		System.out.printf("\033[35m 🚀 LanzaCohetes:    %-20s Vida=%-10d Posición=%-10s Alcance=%-10d" + "\033[30m",
 				nombre, vida, posicion, alcance);
 		return "";
 	}
