@@ -11,9 +11,9 @@ public abstract class Individuos {
 	// Vida se asigna a 9 y posicion se define de forma aleatoria entre 1 y 10 que
 	// son las plantas.
 
-	public String nombre;
-	public int vida, posicion;
-	public boolean vivo = true;
+	protected String nombre;
+	protected int vida, posicion;
+	protected boolean vivo = true;
 
 	public Individuos() {
 

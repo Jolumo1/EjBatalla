@@ -10,8 +10,8 @@ public class Banda {
 	// objeto Banda y otro atributo que es un array de objetos Individuo, para
 	// llenarlos con los dos tipos de soldado que hemos creado
 
-	public String nombre;
-	public Individuos[] soldados;
+	protected String nombre;
+	protected Individuos[] soldados;
 
 	// Constructor
 	public Banda(Individuos[] soldados) {

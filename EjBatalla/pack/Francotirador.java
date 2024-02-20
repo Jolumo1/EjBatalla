@@ -8,7 +8,7 @@ public class Francotirador extends Individuos {
 	// de la clase padre Individuos y añade la variable danio, que se genera de
 	// forma aleatoria entre 1 y 9
 
-	public int danio;
+	private int danio;
 
 	public Francotirador() {
 
